@@ -20,8 +20,16 @@ builder.Services.AddMarten(opt => {
 }).UseLightweightSessions();
 
 builder.Services.AddScoped<ICartRepository,CartRepository>();
+builder.Services.Decorate<ICartRepository, CachedCartRepository>();
+
+builder.Services.AddStackExchangeRedisCache(opt =>
+{
+    opt.Configuration = builder.Configuration.GetConnectionString("Redis");
+});
 
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+
+
 
 var app = builder.Build();
 
