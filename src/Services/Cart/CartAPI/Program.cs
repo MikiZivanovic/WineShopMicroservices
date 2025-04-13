@@ -3,6 +3,7 @@
 
 
 using BuildingBlocks.Exceptions.CustomExceptionHandler;
+using BuildingBlocksMessaging.MassTransit;
 using CartAPI.Data;
 using DiscountGRPC;
 
@@ -42,6 +43,8 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
 
 });
 
+
+builder.Services.AddMessageBroker(builder.Configuration);
 
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 

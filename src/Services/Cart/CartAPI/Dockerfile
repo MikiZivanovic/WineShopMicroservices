@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Services/Cart/CartAPI/CartAPI.csproj", "Services/Cart/CartAPI/"]
+COPY ["BuildingBlocks/BuildingbBlocksMessaging/BuildingBlocksMessaging.csproj", "BuildingBlocks/BuildingbBlocksMessaging/"]
 COPY ["BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/BuildingBlocks/"]
 RUN dotnet restore "./Services/Cart/CartAPI/CartAPI.csproj"
 COPY . .

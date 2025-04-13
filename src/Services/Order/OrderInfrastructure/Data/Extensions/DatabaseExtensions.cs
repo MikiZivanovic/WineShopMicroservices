@@ -28,7 +28,7 @@ namespace OrderInfrastructure.Data.Extensions
 
             await SeedCustomers(context);
             await SeedWines(context);
-            await SeedOrders(context);
+           // await SeedOrders(context);
         }
 
         private static async Task SeedCustomers(ApplicationDbContext context)
